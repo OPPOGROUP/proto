@@ -9,6 +9,12 @@ service Hoyolib {
   rpc GetAccountInfo (AccountInfoRequest) returns (AccountInfoResponse) {}
 }
 
+enum ErrorCode {
+  UNKNOWN_CODE = 0;
+  INVALID_REQUEST_PARAM = 10000;
+  ERROR_CREATE_USER = 10001;
+}
+
 enum GameType {
   UNKNOWN_GAME = 0;
   Genshin = 1000;
