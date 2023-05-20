@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+option go_package = "./hoyolib_pb";
+
+
+service Hoyolib {
+  rpc Register (RegisterRequest) returns (RegisterResponse) {}
+  rpc Sign (SignRequest) returns (SignResponse) {}
+  rpc GetAccountInfo (AccountInfoRequest) returns (AccountInfoResponse) {}
+}
+
+enum GameType {
+  UNKNOWN_GAME = 0;
+  Genshin = 1000;
+  StarRail = 1001;
+}
+
+message ResponseHeader {
+  int32 code = 1;
+  string message = 2;
+  int64 user_id = 3;
+}
+
+message RegisterRequest {
+  string account_id = 1;
+  string cookie_token = 2;
+  enum AccountType {
+    UNKNOWN = 0;
+    OVERSEA = 1;
+    CN = 2;
+  }
+  AccountType account_type = 3;
+  int64 user_id = 4; // send the empty user_id first time to get user_id
+  repeated GameType games = 5;
+}
+
+message RegisterResponse {
+  ResponseHeader header = 1;
+}
+
+message SignRequest {
+  int64 user_id = 1;
+  repeated GameType games = 2;
+}
+
+message SignResponse {
+  ResponseHeader header = 1;
+}
+
+message AccountInfoRequest {
+  int64 user_id = 1;
+}
+
+message AccountInfoResponse {
+  ResponseHeader header = 1;
+  message AccountInfo {
+    message GameInfo {
+
+    }
+    repeated GameInfo game_infos = 1;
+    bool is_sign = 2;
+  }
+  AccountInfo account_info = 2;
+}
+
+
+
