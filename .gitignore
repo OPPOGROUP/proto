@@ -25,5 +25,3 @@ go.work
 # npm
 node_modules
 package-lock.json
-.npmignore
-index.ts
