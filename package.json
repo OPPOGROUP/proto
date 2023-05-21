@@ -1,19 +1,16 @@
 {
   "name": "mihomo-protocol",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "gen protobuf to js&ts",
-  "scripts": {
-    "build": "tsc"
-  },
-  "bin": {
-    "gen-hoyo": "gen.js"
-  },
+  "main": "index.js",
   "keywords": [],
   "author": "delongchen",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
     "@types/node": "^20.2.1",
+    "grpc-tools": "^1.12.4",
+    "protoc-gen-js": "^3.21.2",
+    "ts-protoc-gen": "^0.15.0",
     "typescript": "^5.0.4"
   }
 }
