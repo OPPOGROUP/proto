@@ -241,6 +241,7 @@ export interface ErrorCodeMap {
   OK: 0;
   INVALID_REQUEST_PARAM: 10000;
   ERROR_CREATE_USER: 10001;
+  ERROR_USER_NOT_REGISTER: 10002;
 }
 
 export const ErrorCode: ErrorCodeMap;
