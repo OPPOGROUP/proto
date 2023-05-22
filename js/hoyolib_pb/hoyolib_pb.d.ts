@@ -131,6 +131,10 @@ export class CheckInResponse extends jspb.Message {
   getHeader(): ResponseHeader | undefined;
   setHeader(value?: ResponseHeader): void;
 
+  getCheckininfocnMap(): jspb.Map<number, CheckInResponse.CheckInStatus>;
+  clearCheckininfocnMap(): void;
+  getCheckininfooverseaMap(): jspb.Map<number, CheckInResponse.CheckInStatus>;
+  clearCheckininfooverseaMap(): void;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CheckInResponse.AsObject;
   static toObject(includeInstance: boolean, msg: CheckInResponse): CheckInResponse.AsObject;
@@ -144,6 +148,32 @@ export class CheckInResponse extends jspb.Message {
 export namespace CheckInResponse {
   export type AsObject = {
     header?: ResponseHeader.AsObject,
+    checkininfocnMap: Array<[number, CheckInResponse.CheckInStatus.AsObject]>,
+    checkininfooverseaMap: Array<[number, CheckInResponse.CheckInStatus.AsObject]>,
+  }
+
+  export class CheckInStatus extends jspb.Message {
+    getSuccess(): boolean;
+    setSuccess(value: boolean): void;
+
+    getMsg(): string;
+    setMsg(value: string): void;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): CheckInStatus.AsObject;
+    static toObject(includeInstance: boolean, msg: CheckInStatus): CheckInStatus.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: CheckInStatus, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CheckInStatus;
+    static deserializeBinaryFromReader(message: CheckInStatus, reader: jspb.BinaryReader): CheckInStatus;
+  }
+
+  export namespace CheckInStatus {
+    export type AsObject = {
+      success: boolean,
+      msg: string,
+    }
   }
 }
 
