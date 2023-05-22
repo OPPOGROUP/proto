@@ -99,7 +99,7 @@ export namespace RegisterResponse {
   }
 }
 
-export class SignRequest extends jspb.Message {
+export class CheckInRequest extends jspb.Message {
   getUserId(): number;
   setUserId(value: number): void;
 
@@ -109,39 +109,39 @@ export class SignRequest extends jspb.Message {
   addGames(value: GameTypeMap[keyof GameTypeMap], index?: number): GameTypeMap[keyof GameTypeMap];
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SignRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: SignRequest): SignRequest.AsObject;
+  toObject(includeInstance?: boolean): CheckInRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: CheckInRequest): CheckInRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: SignRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SignRequest;
-  static deserializeBinaryFromReader(message: SignRequest, reader: jspb.BinaryReader): SignRequest;
+  static serializeBinaryToWriter(message: CheckInRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CheckInRequest;
+  static deserializeBinaryFromReader(message: CheckInRequest, reader: jspb.BinaryReader): CheckInRequest;
 }
 
-export namespace SignRequest {
+export namespace CheckInRequest {
   export type AsObject = {
     userId: number,
     gamesList: Array<GameTypeMap[keyof GameTypeMap]>,
   }
 }
 
-export class SignResponse extends jspb.Message {
+export class CheckInResponse extends jspb.Message {
   hasHeader(): boolean;
   clearHeader(): void;
   getHeader(): ResponseHeader | undefined;
   setHeader(value?: ResponseHeader): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): SignResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: SignResponse): SignResponse.AsObject;
+  toObject(includeInstance?: boolean): CheckInResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: CheckInResponse): CheckInResponse.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: SignResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): SignResponse;
-  static deserializeBinaryFromReader(message: SignResponse, reader: jspb.BinaryReader): SignResponse;
+  static serializeBinaryToWriter(message: CheckInResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CheckInResponse;
+  static deserializeBinaryFromReader(message: CheckInResponse, reader: jspb.BinaryReader): CheckInResponse;
 }
 
-export namespace SignResponse {
+export namespace CheckInResponse {
   export type AsObject = {
     header?: ResponseHeader.AsObject,
   }
@@ -242,6 +242,7 @@ export interface ErrorCodeMap {
   INVALID_REQUEST_PARAM: 10000;
   ERROR_CREATE_USER: 10001;
   ERROR_USER_NOT_REGISTER: 10002;
+  ERROR_CHECK_IN: 10003;
 }
 
 export const ErrorCode: ErrorCodeMap;

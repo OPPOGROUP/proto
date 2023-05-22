@@ -5,7 +5,7 @@ option go_package = "./hoyolib_pb";
 
 service Hoyolib {
   rpc Register (RegisterRequest) returns (RegisterResponse) {}
-  rpc Sign (SignRequest) returns (SignResponse) {}
+  rpc CheckIn (CheckInRequest) returns (CheckInResponse) {}
   rpc GetAccountInfo (AccountInfoRequest) returns (AccountInfoResponse) {}
 }
 
@@ -14,6 +14,7 @@ enum ErrorCode {
   INVALID_REQUEST_PARAM = 10000;
   ERROR_CREATE_USER = 10001;
   ERROR_USER_NOT_REGISTER = 10002;
+  ERROR_CHECK_IN = 10003;
 }
 
 enum GameType {
@@ -45,12 +46,12 @@ message RegisterResponse {
   ResponseHeader header = 1;
 }
 
-message SignRequest {
+message CheckInRequest {
   int64 user_id = 1;
   repeated GameType games = 2;
 }
 
-message SignResponse {
+message CheckInResponse {
   ResponseHeader header = 1;
 }
 

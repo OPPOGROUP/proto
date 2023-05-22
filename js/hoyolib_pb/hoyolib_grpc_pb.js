@@ -26,6 +26,28 @@ function deserialize_AccountInfoResponse(buffer_arg) {
   return hoyolib_pb_hoyolib_pb.AccountInfoResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_CheckInRequest(arg) {
+  if (!(arg instanceof hoyolib_pb_hoyolib_pb.CheckInRequest)) {
+    throw new Error('Expected argument of type CheckInRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_CheckInRequest(buffer_arg) {
+  return hoyolib_pb_hoyolib_pb.CheckInRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_CheckInResponse(arg) {
+  if (!(arg instanceof hoyolib_pb_hoyolib_pb.CheckInResponse)) {
+    throw new Error('Expected argument of type CheckInResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_CheckInResponse(buffer_arg) {
+  return hoyolib_pb_hoyolib_pb.CheckInResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_RegisterRequest(arg) {
   if (!(arg instanceof hoyolib_pb_hoyolib_pb.RegisterRequest)) {
     throw new Error('Expected argument of type RegisterRequest');
@@ -48,28 +70,6 @@ function deserialize_RegisterResponse(buffer_arg) {
   return hoyolib_pb_hoyolib_pb.RegisterResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_SignRequest(arg) {
-  if (!(arg instanceof hoyolib_pb_hoyolib_pb.SignRequest)) {
-    throw new Error('Expected argument of type SignRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_SignRequest(buffer_arg) {
-  return hoyolib_pb_hoyolib_pb.SignRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_SignResponse(arg) {
-  if (!(arg instanceof hoyolib_pb_hoyolib_pb.SignResponse)) {
-    throw new Error('Expected argument of type SignResponse');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_SignResponse(buffer_arg) {
-  return hoyolib_pb_hoyolib_pb.SignResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 
 var HoyolibService = exports.HoyolibService = {
   register: {
@@ -83,16 +83,16 @@ var HoyolibService = exports.HoyolibService = {
     responseSerialize: serialize_RegisterResponse,
     responseDeserialize: deserialize_RegisterResponse,
   },
-  sign: {
-    path: '/Hoyolib/Sign',
+  checkIn: {
+    path: '/Hoyolib/CheckIn',
     requestStream: false,
     responseStream: false,
-    requestType: hoyolib_pb_hoyolib_pb.SignRequest,
-    responseType: hoyolib_pb_hoyolib_pb.SignResponse,
-    requestSerialize: serialize_SignRequest,
-    requestDeserialize: deserialize_SignRequest,
-    responseSerialize: serialize_SignResponse,
-    responseDeserialize: deserialize_SignResponse,
+    requestType: hoyolib_pb_hoyolib_pb.CheckInRequest,
+    responseType: hoyolib_pb_hoyolib_pb.CheckInResponse,
+    requestSerialize: serialize_CheckInRequest,
+    requestDeserialize: deserialize_CheckInRequest,
+    responseSerialize: serialize_CheckInResponse,
+    responseDeserialize: deserialize_CheckInResponse,
   },
   getAccountInfo: {
     path: '/Hoyolib/GetAccountInfo',

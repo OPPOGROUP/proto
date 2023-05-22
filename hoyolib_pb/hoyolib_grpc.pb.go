@@ -20,7 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	Hoyolib_Register_FullMethodName       = "/Hoyolib/Register"
-	Hoyolib_Sign_FullMethodName           = "/Hoyolib/Sign"
+	Hoyolib_CheckIn_FullMethodName        = "/Hoyolib/CheckIn"
 	Hoyolib_GetAccountInfo_FullMethodName = "/Hoyolib/GetAccountInfo"
 )
 
@@ -29,7 +29,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HoyolibClient interface {
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
-	Sign(ctx context.Context, in *SignRequest, opts ...grpc.CallOption) (*SignResponse, error)
+	CheckIn(ctx context.Context, in *CheckInRequest, opts ...grpc.CallOption) (*CheckInResponse, error)
 	GetAccountInfo(ctx context.Context, in *AccountInfoRequest, opts ...grpc.CallOption) (*AccountInfoResponse, error)
 }
 
@@ -50,9 +50,9 @@ func (c *hoyolibClient) Register(ctx context.Context, in *RegisterRequest, opts 
 	return out, nil
 }
 
-func (c *hoyolibClient) Sign(ctx context.Context, in *SignRequest, opts ...grpc.CallOption) (*SignResponse, error) {
-	out := new(SignResponse)
-	err := c.cc.Invoke(ctx, Hoyolib_Sign_FullMethodName, in, out, opts...)
+func (c *hoyolibClient) CheckIn(ctx context.Context, in *CheckInRequest, opts ...grpc.CallOption) (*CheckInResponse, error) {
+	out := new(CheckInResponse)
+	err := c.cc.Invoke(ctx, Hoyolib_CheckIn_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +73,7 @@ func (c *hoyolibClient) GetAccountInfo(ctx context.Context, in *AccountInfoReque
 // for forward compatibility
 type HoyolibServer interface {
 	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
-	Sign(context.Context, *SignRequest) (*SignResponse, error)
+	CheckIn(context.Context, *CheckInRequest) (*CheckInResponse, error)
 	GetAccountInfo(context.Context, *AccountInfoRequest) (*AccountInfoResponse, error)
 	mustEmbedUnimplementedHoyolibServer()
 }
@@ -85,8 +85,8 @@ type UnimplementedHoyolibServer struct {
 func (UnimplementedHoyolibServer) Register(context.Context, *RegisterRequest) (*RegisterResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Register not implemented")
 }
-func (UnimplementedHoyolibServer) Sign(context.Context, *SignRequest) (*SignResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Sign not implemented")
+func (UnimplementedHoyolibServer) CheckIn(context.Context, *CheckInRequest) (*CheckInResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckIn not implemented")
 }
 func (UnimplementedHoyolibServer) GetAccountInfo(context.Context, *AccountInfoRequest) (*AccountInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAccountInfo not implemented")
@@ -122,20 +122,20 @@ func _Hoyolib_Register_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Hoyolib_Sign_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SignRequest)
+func _Hoyolib_CheckIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckInRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(HoyolibServer).Sign(ctx, in)
+		return srv.(HoyolibServer).CheckIn(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Hoyolib_Sign_FullMethodName,
+		FullMethod: Hoyolib_CheckIn_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HoyolibServer).Sign(ctx, req.(*SignRequest))
+		return srv.(HoyolibServer).CheckIn(ctx, req.(*CheckInRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -170,8 +170,8 @@ var Hoyolib_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Hoyolib_Register_Handler,
 		},
 		{
-			MethodName: "Sign",
-			Handler:    _Hoyolib_Sign_Handler,
+			MethodName: "CheckIn",
+			Handler:    _Hoyolib_CheckIn_Handler,
 		},
 		{
 			MethodName: "GetAccountInfo",
