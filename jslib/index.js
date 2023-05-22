@@ -14,5 +14,6 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./js/hoyolib_pb/hoyolib_pb"), exports);
-__exportStar(require("./js/hoyolib_pb/hoyolib_grpc_pb"), exports);
+// hoyolib_pb -> hoyolib.proto
+__exportStar(require("./hoyolib_pb/hoyolib_pb"), exports);
+__exportStar(require("./hoyolib_pb/hoyolib_grpc_pb"), exports);
