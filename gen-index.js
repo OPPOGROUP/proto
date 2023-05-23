@@ -46,11 +46,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-`;
-const requireModStarJS = ([mod, protoFiles]) => protoFiles.map(protoFile => `// ${mod} -> ${protoFile}.proto
+/* node require star */`;
+const requireModStarJS = ([mod, protoFiles]) => protoFiles.map(protoFile => `// file: ${mod}/${protoFile}.proto
 __exportStar(require("./${mod}/${protoFile}_pb"), exports);
 __exportStar(require("./${mod}/${protoFile}_grpc_pb"), exports);`).join('\n');
-const requireModStarTS = ([mod, protoFiles]) => protoFiles.map(protoFile => `// ${mod} -> ${protoFile}.proto
+const requireModStarTS = ([mod, protoFiles]) => protoFiles.map(protoFile => `// file: ${mod}/${protoFile}.proto
 export * from './${mod}/${protoFile}_pb';
 export * from './${mod}/${protoFile}_grpc_pb';`).join('\n');
 async function updateVersion() {

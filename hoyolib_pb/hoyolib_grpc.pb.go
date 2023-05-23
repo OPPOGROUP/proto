@@ -19,9 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Hoyolib_Register_FullMethodName       = "/Hoyolib/Register"
-	Hoyolib_CheckIn_FullMethodName        = "/Hoyolib/CheckIn"
-	Hoyolib_GetAccountInfo_FullMethodName = "/Hoyolib/GetAccountInfo"
+	Hoyolib_Register_FullMethodName       = "/hoyolib.Hoyolib/Register"
+	Hoyolib_CheckIn_FullMethodName        = "/hoyolib.Hoyolib/CheckIn"
+	Hoyolib_GetAccountInfo_FullMethodName = "/hoyolib.Hoyolib/GetAccountInfo"
 )
 
 // HoyolibClient is the client API for Hoyolib service.
@@ -162,7 +162,7 @@ func _Hoyolib_GetAccountInfo_Handler(srv interface{}, ctx context.Context, dec f
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Hoyolib_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "Hoyolib",
+	ServiceName: "hoyolib.Hoyolib",
 	HandlerType: (*HoyolibServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

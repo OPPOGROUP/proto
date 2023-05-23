@@ -1,6 +1,6 @@
 // GENERATED CODE -- DO NOT EDIT!
 
-// package: 
+// package: hoyolib
 // file: hoyolib_pb/hoyolib.proto
 
 import * as hoyolib_pb_hoyolib_pb from "../hoyolib_pb/hoyolib_pb";

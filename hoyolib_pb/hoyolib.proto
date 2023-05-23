@@ -2,6 +2,7 @@ syntax = "proto3";
 
 option go_package = "./hoyolib_pb";
 
+package hoyolib;
 
 service Hoyolib {
   rpc Register (RegisterRequest) returns (RegisterResponse) {}

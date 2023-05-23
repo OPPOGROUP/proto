@@ -1,4 +1,4 @@
-// package: 
+// package: hoyolib
 // file: hoyolib_pb/hoyolib.proto
 
 import * as jspb from "google-protobuf";
