@@ -1,6 +1,6 @@
 // GENERATED CODE -- DO NOT EDIT!
 
-// package: hoyolib
+// package: 
 // file: hoyolib_pb/hoyolib.proto
 
 import * as hoyolib_pb_hoyolib_pb from "../hoyolib_pb/hoyolib_pb";
@@ -31,4 +31,21 @@ export class HoyolibClient extends grpc.Client {
   getAccountInfo(argument: hoyolib_pb_hoyolib_pb.AccountInfoRequest, callback: grpc.requestCallback<hoyolib_pb_hoyolib_pb.AccountInfoResponse>): grpc.ClientUnaryCall;
   getAccountInfo(argument: hoyolib_pb_hoyolib_pb.AccountInfoRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<hoyolib_pb_hoyolib_pb.AccountInfoResponse>): grpc.ClientUnaryCall;
   getAccountInfo(argument: hoyolib_pb_hoyolib_pb.AccountInfoRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<hoyolib_pb_hoyolib_pb.AccountInfoResponse>): grpc.ClientUnaryCall;
+}
+
+interface IOpwxService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
+  pushCheckinResults: grpc.MethodDefinition<hoyolib_pb_hoyolib_pb.CheckinResults, hoyolib_pb_hoyolib_pb.PushResponse>;
+}
+
+export const OpwxService: IOpwxService;
+
+export interface IOpwxServer extends grpc.UntypedServiceImplementation {
+  pushCheckinResults: grpc.handleUnaryCall<hoyolib_pb_hoyolib_pb.CheckinResults, hoyolib_pb_hoyolib_pb.PushResponse>;
+}
+
+export class OpwxClient extends grpc.Client {
+  constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+  pushCheckinResults(argument: hoyolib_pb_hoyolib_pb.CheckinResults, callback: grpc.requestCallback<hoyolib_pb_hoyolib_pb.PushResponse>): grpc.ClientUnaryCall;
+  pushCheckinResults(argument: hoyolib_pb_hoyolib_pb.CheckinResults, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<hoyolib_pb_hoyolib_pb.PushResponse>): grpc.ClientUnaryCall;
+  pushCheckinResults(argument: hoyolib_pb_hoyolib_pb.CheckinResults, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<hoyolib_pb_hoyolib_pb.PushResponse>): grpc.ClientUnaryCall;
 }

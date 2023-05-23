@@ -1,6 +1,6 @@
 {
     "name": "mihomo-protocol",
-    "version": "0.1.9",
+    "version": "0.1.12",
     "description": "gen protobuf to js&ts",
     "main": "jslib/index.js",
     "keywords": [],
@@ -10,5 +10,8 @@
         "grpc-tools": "^1.12.4",
         "protoc-gen-js": "^3.21.2",
         "ts-protoc-gen": "^0.15.0"
+    },
+    "dependencies": {
+        "@grpc/grpc-js": "^1.8.14"
     }
 }

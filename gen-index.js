@@ -90,7 +90,7 @@ async function getProtoFiles(parent) {
 }
 async function start() {
     const targets = await getProtoDir();
-    await (0, promises_1.writeFile)(path.join(outDir, 'index.js'), importHelper + targets.map(requireModStarJS).join('\n'));
+    await (0, promises_1.writeFile)(path.join(outDir, 'index.js'), importHelper + '\n' + targets.map(requireModStarJS).join('\n'));
     await (0, promises_1.writeFile)(path.join(outDir, 'index.d.ts'), targets.map(requireModStarTS).join('\n'));
     await updateVersion();
 }

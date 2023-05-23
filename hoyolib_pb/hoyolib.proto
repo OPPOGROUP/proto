@@ -2,13 +2,30 @@ syntax = "proto3";
 
 option go_package = "./hoyolib_pb";
 
-package hoyolib;
-
 service Hoyolib {
   rpc Register (RegisterRequest) returns (RegisterResponse) {}
   rpc CheckIn (CheckInRequest) returns (CheckInResponse) {}
   rpc GetAccountInfo (AccountInfoRequest) returns (AccountInfoResponse) {}
 }
+
+/* Service Opwx start */
+service Opwx {
+  rpc PushCheckinResults(CheckinResults) returns (PushResponse) {}
+}
+
+message CheckinResults {
+  repeated CheckInResponse results = 1;
+}
+
+message PushResponse {
+  enum PushStatus {
+    OK = 0;
+    ERR = 1;
+  }
+  PushStatus status = 1;
+  string msg = 2;
+}
+/* Service Opwx end */
 
 enum ErrorCode {
   OK = 0;

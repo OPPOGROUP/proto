@@ -14,9 +14,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-/* node require star */// file: hoyolib_pb/hoyolib.proto
+/* node require star */
+// file: hoyolib_pb/hoyolib.proto
 __exportStar(require("./hoyolib_pb/hoyolib_pb"), exports);
 __exportStar(require("./hoyolib_pb/hoyolib_grpc_pb"), exports);
-// file: opwx_pb/opwx.proto
-__exportStar(require("./opwx_pb/opwx_pb"), exports);
-__exportStar(require("./opwx_pb/opwx_grpc_pb"), exports);
