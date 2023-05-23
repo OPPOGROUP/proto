@@ -15,6 +15,9 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /* node require star */
-// file: hoyolib_pb/hoyolib.proto
-__exportStar(require("./hoyolib_pb/hoyolib_pb"), exports);
-__exportStar(require("./hoyolib_pb/hoyolib_grpc_pb"), exports);
+// file: hoyolib.proto
+__exportStar(require("./proto/hoyolib_pb"), exports);
+__exportStar(require("./proto/hoyolib_grpc_pb"), exports);
+// file: opwx.proto
+__exportStar(require("./proto/opwx_pb"), exports);
+__exportStar(require("./proto/opwx_grpc_pb"), exports);

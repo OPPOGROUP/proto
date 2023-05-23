@@ -47,10 +47,10 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /* node require star */`;
-const requireModStarJS = ([mod, protoFiles]) => protoFiles.map(protoFile => `// file: ${mod}/${protoFile}.proto
+const requireModStarJS = ([mod, protoFiles]) => protoFiles.map(protoFile => `// file: ${protoFile}.proto
 __exportStar(require("./${mod}/${protoFile}_pb"), exports);
 __exportStar(require("./${mod}/${protoFile}_grpc_pb"), exports);`).join('\n');
-const requireModStarTS = ([mod, protoFiles]) => protoFiles.map(protoFile => `// file: ${mod}/${protoFile}.proto
+const requireModStarTS = ([mod, protoFiles]) => protoFiles.map(protoFile => `// file: ${protoFile}.proto
 export * from './${mod}/${protoFile}_pb';
 export * from './${mod}/${protoFile}_grpc_pb';`).join('\n');
 async function updateVersion() {
@@ -64,27 +64,16 @@ async function updateVersion() {
     }
 }
 async function getProtoDir() {
-    const dir = await (0, promises_1.opendir)('.');
+    const dir = await (0, promises_1.opendir)('./proto');
     const ret = [];
     for await (const dirent of dir) {
-        if (dirent.isDirectory() && dirent.name !== 'node_modules') {
-            const protoFiles = await getProtoFiles(dirent.name);
-            if (protoFiles.length !== 0) {
-                ret.push([dirent.name, protoFiles]);
-            }
-        }
-    }
-    return ret;
-}
-async function getProtoFiles(parent) {
-    const ret = [];
-    const dir = await (0, promises_1.opendir)(`./${parent}`);
-    for await (const dirent of dir) {
+        const tmp = []
         if (dirent.isFile() && dirent.name.endsWith('.proto')) {
             const nameChunk = dirent.name.split('.');
             nameChunk.pop();
-            ret.push(nameChunk.join('.'));
+            tmp.push(nameChunk.join('.'));
         }
+        ret.push(['proto', tmp])
     }
     return ret;
 }

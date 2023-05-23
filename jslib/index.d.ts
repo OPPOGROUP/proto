@@ -1,3 +1,6 @@
-// file: hoyolib_pb/hoyolib.proto
-export * from './hoyolib_pb/hoyolib_pb';
-export * from './hoyolib_pb/hoyolib_grpc_pb';
+// file: hoyolib.proto
+export * from './proto/hoyolib_pb';
+export * from './proto/hoyolib_grpc_pb';
+// file: opwx.proto
+export * from './proto/opwx_pb';
+export * from './proto/opwx_grpc_pb';

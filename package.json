@@ -1,6 +1,6 @@
 {
     "name": "mihomo-protocol",
-    "version": "0.1.12",
+    "version": "0.1.21",
     "description": "gen protobuf to js&ts",
     "main": "jslib/index.js",
     "keywords": [],
