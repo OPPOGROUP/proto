@@ -75,8 +75,10 @@ message CheckInResponse {
     bool success = 1;
     string msg = 2;
   }
-  map<int32, CheckInStatus> CheckInInfoCN = 2;
-  map<int32, CheckInStatus> CheckInInfoOversea = 3;
+  message CheckInInfo {
+    map<int32, CheckInStatus> info = 1;
+  }
+  map<int32, CheckInInfo> clients_info =2;
 }
 
 message AccountInfoRequest {
