@@ -1,6 +1,10 @@
-.PHONY : gen
-gen :
+.PHONY : gengo
+gengo :
 	protoc --go_out=. --go-grpc_out=. ./*/*.proto
+
+
+.PHONY : genjs
+genjs :
 	npm install --no-fund
 	protoc \
 	 --proto_path=. \
