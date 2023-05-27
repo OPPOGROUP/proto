@@ -184,10 +184,8 @@ export class CheckInResponse extends jspb.Message {
   getHeader(): ResponseHeader | undefined;
   setHeader(value?: ResponseHeader): void;
 
-  getCheckininfocnMap(): jspb.Map<number, CheckInResponse.CheckInStatus>;
-  clearCheckininfocnMap(): void;
-  getCheckininfooverseaMap(): jspb.Map<number, CheckInResponse.CheckInStatus>;
-  clearCheckininfooverseaMap(): void;
+  getClientsInfoMap(): jspb.Map<number, CheckInResponse.CheckInInfo>;
+  clearClientsInfoMap(): void;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CheckInResponse.AsObject;
   static toObject(includeInstance: boolean, msg: CheckInResponse): CheckInResponse.AsObject;
@@ -201,8 +199,7 @@ export class CheckInResponse extends jspb.Message {
 export namespace CheckInResponse {
   export type AsObject = {
     header?: ResponseHeader.AsObject,
-    checkininfocnMap: Array<[number, CheckInResponse.CheckInStatus.AsObject]>,
-    checkininfooverseaMap: Array<[number, CheckInResponse.CheckInStatus.AsObject]>,
+    clientsInfoMap: Array<[number, CheckInResponse.CheckInInfo.AsObject]>,
   }
 
   export class CheckInStatus extends jspb.Message {
@@ -226,6 +223,25 @@ export namespace CheckInResponse {
     export type AsObject = {
       success: boolean,
       msg: string,
+    }
+  }
+
+  export class CheckInInfo extends jspb.Message {
+    getInfoMap(): jspb.Map<number, CheckInResponse.CheckInStatus>;
+    clearInfoMap(): void;
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): CheckInInfo.AsObject;
+    static toObject(includeInstance: boolean, msg: CheckInInfo): CheckInInfo.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: CheckInInfo, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): CheckInInfo;
+    static deserializeBinaryFromReader(message: CheckInInfo, reader: jspb.BinaryReader): CheckInInfo;
+  }
+
+  export namespace CheckInInfo {
+    export type AsObject = {
+      infoMap: Array<[number, CheckInResponse.CheckInStatus.AsObject]>,
     }
   }
 }
